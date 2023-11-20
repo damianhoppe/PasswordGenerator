@@ -1,0 +1,44 @@
+<div class="borderLine">
+  <main>
+    <h1>{{ title }}</h1>
+    <div class="settings">
+      <div class="settings-length">
+        <input type="number" min="{{ passwordConfig.length.min }}" max="{{ passwordConfig.length.max }}" [(ngModel)]="data.passwordLength" (ngModelChange)="updatePassword()"/>
+        <span>{{ passwordConfig.length.min }}</span>
+        <input type="range" min="{{ passwordConfig.length.min }}" max="{{ passwordConfig.length.max }}" [(ngModel)]="data.passwordLength" (ngModelChange)="updatePassword()"/>
+        <span>{{ passwordConfig.length.max }}</span>
+      </div>
+      <div class="settings-contents">
+        <label>
+          <input type="checkbox" [(ngModel)]="data.uppercaseChecked" (click)="cancelEventIfOnlyOneChecked($event)" (ngModelChange)="updatePassword()"/>
+          Uppercase
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="data.lowercaseChecked" (click)="cancelEventIfOnlyOneChecked($event)" (ngModelChange)="updatePassword()"/>
+          Lowercase
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="data.numbersChecked" (click)="cancelEventIfOnlyOneChecked($event)" (ngModelChange)="updatePassword()"/>
+          Numbers
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="data.symbolsChecked" (click)="cancelEventIfOnlyOneChecked($event)" (ngModelChange)="updatePassword()"/>
+          Symbols
+        </label>
+      </div>
+    </div>
+    <input type="text" value="{{ password }}" spellcheck="false"/><br>
+    <div class="row">
+      <button id="copy" (click)="copyPasswordToClipboard()">
+        <span class="material-symbols-outlined">content_copy</span>
+        Copy
+      </button>
+      <button id="regeneratePassword" (click)="updatePassword()">
+        <span class="material-symbols-outlined">autorenew</span>
+        Regenerate
+      </button>
+    </div>
+  </main>
+</div>
+<p-toast position="bottom-center"></p-toast>
+<router-outlet></router-outlet>

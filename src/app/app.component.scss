@@ -1,0 +1,139 @@
+$borderRadius: 16px;
+$bgColorSurface: #060d14;
+
+
+$borderLinePadding: 36px;
+$borderLineOuterWidth: 11px;
+$borderLineBorderWidth: 10px;
+
+.borderLine {
+    min-width: 900px;
+    border-radius: $borderRadius;
+    position: relative;
+    overflow: hidden;
+    background-color: $bgColorSurface;
+}
+
+.borderLine::before {
+    top: $borderLineOuterWidth;
+    left: $borderLineOuterWidth;
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    content: ' ';
+    height: calc(100% - $borderLineOuterWidth*2);
+    width: calc(100% - $borderLineOuterWidth*2);
+    display: inline-block;
+    border-radius: $borderRadius;
+    border: var(--bgColor) $borderLineBorderWidth solid;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    padding: calc($borderLinePadding + $borderLineOuterWidth + $borderLineBorderWidth);
+    border-radius: $borderRadius;
+
+    > .settings {
+        margin: 64px 0 32px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .settings-length {
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
+        align-items: center;
+
+        span {
+            color: #ccc;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            font-size: 1.8em;
+            width: 3.4em;
+            margin-right: 16px;
+        }
+
+        input[type="range"] {
+            width: 300px;
+            margin: 0 8px;
+        }
+    }
+
+    .settings-contents {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.6em;
+        row-gap: 6px;
+
+        label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 12px;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.6)
+        }
+    }
+
+    > input[type="text"] {
+        width: 100%;
+        margin-bottom: 32px;
+    }
+}
+
+h1 {
+    font-size: 2.6em;
+    margin-top: 0;
+}
+
+input[type="text"], input[type="number"] {
+    background-color: var(--secondColor);
+    color: white;
+    border-bottom: 2px var(--accentColor) solid;
+    border-radius: 16px 16px 0 0;
+    padding: 12px;
+}
+
+input, button {
+    font-size: 1.8em;
+    outline: none;
+    border: none;
+}
+
+input[type="submit"], button {
+    padding: 8px 16px;
+    background-color: var(--accentColor) !important;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+main > button {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    column-gap: 12px;
+    justify-content: end;
+}
+
+.row > button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 6px;
+    font-size: 1.2em;
+}
+
+.row > button > span {
+    font-size: 1.3em;
+}

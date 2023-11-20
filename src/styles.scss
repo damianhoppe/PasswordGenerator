@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+$bgColor: #0c151f;
+$accentColor: #e08814;
+
+:root {
+    --bgColor: #0c151f;
+    --secondColor: #152839;
+    --accentColor: #e08814;
+}
+
+* {
+    accent-color: #315370;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0c151f;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 32px 0;
+}
