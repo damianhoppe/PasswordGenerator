@@ -61,6 +61,7 @@ main {
         input[type="range"] {
             width: 300px;
             margin: 0 8px;
+            cursor: pointer;
         }
     }
 
@@ -78,7 +79,8 @@ main {
         }
 
         input[type="checkbox"] {
-            transform: scale(1.6)
+            transform: scale(1.6);
+            cursor: pointer;
         }
     }
 
